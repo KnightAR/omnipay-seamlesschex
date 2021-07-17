@@ -1,0 +1,46 @@
+{
+    "name": "knightar/omnipay-seamlesschex",
+    "description": "seamlesschex driver for the Omnipay PHP payment processing library",
+    "keywords": [
+        "omnipay",
+        "seamlesschex"
+    ],
+    "homepage": "https://github.com/KnightAR/omnipay-seamlesschex",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "KnightAR",
+            "email": "brandon@ihub.global",
+            "homepage": "https://github.com/KnightAR"
+        }
+    ],
+    "require": {
+        "omnipay/common": "^3"
+    },
+    "require-dev": {
+        "omnipay/tests": "^3",
+        "squizlabs/php_codesniffer": "^3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Omnipay\\Seamlesschex\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "League\\Seamlesschex\\Test\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "phpunit",
+        "check-style": "phpcs -p --standard=PSR2 src/",
+        "fix-style": "phpcbf -p --standard=PSR2 src/"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
