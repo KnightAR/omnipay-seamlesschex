@@ -13,7 +13,7 @@ class Response extends AbstractResponse
     public function __construct(RequestInterface $request, $data, $headers)
     {
         $this->request = $request;
-        $this->data = $data;
+        $this->data = \GuzzleHttp\json_decode($data, true);
         $this->headers = $headers;
     }
 

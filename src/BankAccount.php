@@ -5,7 +5,7 @@ use DateTime;
 use DateTimeZone;
 use Omnipay\Common\CreditCard;
 use Omnipay\Common\Exception\InvalidCreditCardException;
-use Omnipay\Skeleton\Exceptions\InvalidBankAccountException;
+use Omnipay\Seamlesschex\Exceptions\InvalidBankAccountException;
 use Symfony\Component\HttpFoundation\ParameterBag;
 
 /**
@@ -53,7 +53,8 @@ class BankAccount extends CreditCard
         $requiredParameters = array(
             'number' => 'bank account number',
             'bank_routing' => 'bank account routing number',
-            'name' => 'full name',
+            'billingFirstName' => 'first name',
+            'billingLastName' => 'last name',
             'email' => 'email address'
         );
 
@@ -85,8 +86,8 @@ class BankAccount extends CreditCard
     public function validateTokenRequest()
     {
         $requiredParameters = array(
-            'firstName' => 'first name',
-            'lastName' => 'last name',
+            'billingFirstName' => 'first name',
+            'billingLastName' => 'last name',
             'number' => 'bank account number',
             'bank_routing' => 'bank account routing number',
         );

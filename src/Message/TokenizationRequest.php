@@ -1,6 +1,8 @@
 <?php
 namespace Omnipay\Seamlesschex\Message;
 
+use Omnipay\Seamlesschex\Exceptions\InvalidBankAccountException;
+
 /**
  * Tokenization Request
  *
@@ -51,7 +53,7 @@ class TokenizationRequest extends AbstractRequest
     /**
      * @return array
      * @throws \Omnipay\Common\Exception\InvalidRequestException
-     * @throws \Omnipay\Skeleton\Exceptions\InvalidBankAccountException
+     * @throws InvalidBankAccountException
      */
     public function getData()
     {
@@ -88,5 +90,13 @@ class TokenizationRequest extends AbstractRequest
             'bank_account' => $this->getCard()->getBankAccount(),
             'bank_routing' => $this->getCard()->getBankRouting(),
         ];
+    }
+
+    /**
+     * @return string
+     */
+    protected function getEndpoint()
+    {
+        return parent::getEndpoint() . 'account/tokenization';
     }
 }

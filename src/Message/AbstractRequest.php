@@ -24,6 +24,36 @@ abstract class AbstractRequest extends BaseAbstractRequest
         return $this->setParameter('apiKey', $value);
     }
 
+    public function getStore()
+    {
+        return $this->getParameter('store');
+    }
+
+    public function setStore($value)
+    {
+        return $this->setParameter('store', $value);
+    }
+
+    public function getToken()
+    {
+        return $this->getParameter('token');
+    }
+
+    public function setToken($value)
+    {
+        return $this->setParameter('token', $value);
+    }
+
+    public function getMemo()
+    {
+        return $this->getParameter('memo');
+    }
+
+    public function setMemo($value)
+    {
+        return $this->setParameter('memo', $value);
+    }
+
     /**
      * {@inheritdoc}
      */

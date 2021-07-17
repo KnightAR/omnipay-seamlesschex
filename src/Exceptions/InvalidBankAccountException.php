@@ -1,6 +1,6 @@
 <?php
 
-namespace Omnipay\Skeleton\Exceptions;
+namespace Omnipay\Seamlesschex\Exceptions;
 
 /**
  * Invalid Bank Account Exception

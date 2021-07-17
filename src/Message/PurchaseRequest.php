@@ -1,5 +1,7 @@
 <?php
 namespace Omnipay\Seamlesschex\Message;
+use Omnipay\Seamlesschex\Exceptions\InvalidBankAccountException;
+
 /**
  * Authorize Request
  *
@@ -48,7 +50,7 @@ namespace Omnipay\Seamlesschex\Message;
  *   ));
  *
  *   // Do an authorize transaction on the gateway
- *   $transaction = $gateway->authorize(array(
+ *   $transaction = $gateway->purchase(array(
  *       'amount'                   => '10.00',
  *       'memo'                     => 'This is a test transaction.',
  *       'card'                     => $bank,
@@ -67,12 +69,12 @@ namespace Omnipay\Seamlesschex\Message;
  *
  * @method Response send()
  */
-class AuthorizeRequest extends AbstractRequest
+class PurchaseRequest extends AbstractRequest
 {
     /**
      * @return array|mixed
      * @throws \Omnipay\Common\Exception\InvalidRequestException
-     * @throws \Omnipay\Skeleton\Exceptions\InvalidBankAccountException
+     * @throws InvalidBankAccountException
      */
     public function getData()
     {
@@ -135,5 +137,13 @@ class AuthorizeRequest extends AbstractRequest
     protected function createResponse($data, $headers = [])
     {
         return $this->response = new CreateCheckResponse($this, $data, $headers);
+    }
+
+    /**
+     * @return string
+     */
+    protected function getEndpoint()
+    {
+        return parent::getEndpoint() . 'check/create';
     }
 }
