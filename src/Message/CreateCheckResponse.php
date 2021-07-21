@@ -22,4 +22,9 @@ class CreateCheckResponse extends Response
         }
     }
 
+    public function isSuccessful()
+    {
+        $check = $this->getCheck();
+        return isset($this->data['success']) && $check && $check['status'] === 'in_process';
+    }
 }
