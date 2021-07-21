@@ -212,4 +212,13 @@ class BankAccount extends CreditCard
     {
         return $this->setParameter('bank_routing', $value);
     }
+
+    /**
+     * @param $value
+     * @return BankAccount
+     */
+    public function setBillingNameOnBank($value)
+    {
+        return $this->setBillingName($value);
+    }
 }
